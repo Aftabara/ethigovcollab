@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News &amp; Events | Ethigov</title>
+  <meta name="description" content="Seminars, webinars, workshops, new publications and announcements from Ethigov.">
+  <meta property="og:title" content="News &amp; Events | Ethigov">
+  <meta property="og:description" content="Seminars, webinars, workshops, new publications and announcements from Ethigov.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/ethigov-logo-horizontal.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="assets/ethigov-equinode-logo.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      fontFamily: { sans: ['Inter','system-ui','sans-serif'], serif: ['Fraunces','Georgia','serif'] },
+      colors: { ink: '#121C26', teal: { 50:'#effafa',100:'#d3eeee',600:'#0B6E73',700:'#0B6E73',800:'#095357',900:'#0E2A33' }, gold: '#b45309' }
+    } } }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white font-sans text-slate-800 antialiased" data-page="news">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between" aria-label="Primary">
+      <a href="index.html" class="flex items-center" aria-label="Ethigov home"><img src="assets/ethigov-logo-horizontal-1x.png" srcset="assets/ethigov-logo-horizontal-1x.png 1x, assets/ethigov-logo-horizontal.png 2x" alt="Ethigov" width="136" height="44" class="h-11 w-auto"></a>
+      <button id="menuBtn" class="lg:hidden p-2 rounded border border-slate-300" aria-expanded="false" aria-controls="menu" aria-label="Toggle menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <ul id="menu" class="hidden lg:flex absolute lg:static top-16 left-0 right-0 bg-white lg:bg-transparent border-b lg:border-0 border-slate-200 flex-col lg:flex-row gap-1 lg:gap-6 p-4 lg:p-0 text-sm font-medium lg:items-center">
+        <li><a class="nav-link" href="index.html#about">About</a></li>
+        <li><a class="nav-link" href="index.html#research">Research</a></li>
+        <li><a class="nav-link" href="research-output.html">Research Output</a></li>
+        <li><a class="nav-link" href="team.html">Team</a></li>
+        <li><a class="nav-link" href="calls.html">Calls for Papers</a></li>
+        <li><a class="nav-link" aria-current="page" href="news.html">News &amp; Events</a></li>
+        <li><a class="nav-link" href="resources.html">Resources</a></li>
+        <li><a href="join.html" class="inline-block bg-teal-700 hover:bg-teal-800 text-white px-4 py-2 rounded-lg">Join Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="banner">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16">
+        <p class="text-xs font-semibold tracking-widest uppercase text-gold">What's happening</p>
+        <h1 class="font-serif text-3xl md:text-4xl font-bold text-teal-900 mt-2">News &amp; events</h1>
+        <p class="mt-4 text-lg text-slate-600 max-w-3xl">Seminars, webinars, workshops, new publications and announcements from our collaboration.</p>
+      </div>
+    </section>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+      <div class="flex flex-wrap gap-2" id="nfilters" role="group" aria-label="Filter by type">
+        <button class="chip chip--on" data-type="all">All</button><button class="chip" data-type="Event">Events</button><button class="chip" data-type="News">News</button><button class="chip" data-type="Publication">Publications</button>
+      </div>
+      <div id="newslist" class="mt-6 grid gap-5" aria-live="polite"></div>
+      <div class="mt-14 border-t border-slate-200 pt-10">
+        <h2 class="font-serif text-2xl font-bold text-teal-900">Stay informed</h2>
+        <p class="mt-3 text-slate-600">Want to hear about new events and calls? <a class="text-teal-700 underline" href="join.html#newsletter">Subscribe for updates</a>.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-slate-50 border-t border-slate-200 text-slate-600">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 flex flex-col md:flex-row gap-4 justify-between text-sm">
+      <div class="flex items-center gap-3"><img src="assets/ethigov-equinode-logo.svg" alt="" width="36" height="36" class="h-9 w-9"><p>&copy; <span id="year"></span> Ethigov. All rights reserved.</p></div>
+      <div class="flex flex-wrap gap-x-5 gap-y-2">
+        <a class="underline" href="join.html">Join us</a><a class="underline" href="news.html">News &amp; events</a><a class="underline" href="resources.html">Resources</a><a class="underline" href="mailto:ethigov.collab@gmail.com">ethigov.collab@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+  <script src="data.js"></script>
+  <script src="site.js" defer></script>
+</body>
+</html>
